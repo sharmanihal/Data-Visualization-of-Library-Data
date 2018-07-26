@@ -6,9 +6,18 @@ import re
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import cx_Oracle
-conn = cx_Oracle.connect('system/cosmos')
-cur = conn.cursor()
 
+
+file1 = open("username.txt","r")
+file2 = open("password.txt","r")
+user = file1.read()
+passw = file2.read()
+user = user[:-1]
+passw = passw[:-1]
+
+
+conn = cx_Oracle.connect(user+'/'+passw)
+cur = conn.cursor()
 
 '''
 Main Starting Window Class
